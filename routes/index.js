@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
+var classificationController = require('../controllers/classificationController');
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// router.get('/', classificationController.dbTest);
+
+router.get('/classify-item', classificationController.classifyImage);
+router.post('/classify-item', classificationController.handleClassifyImage);
+
+router.get('/thank-you', classificationController.thankYou);
 
 module.exports = router;

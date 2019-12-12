@@ -1,0 +1,32 @@
+
+<form method="POST">
+
+  <div class="card">
+
+    <img class="card-img-top" src="/images/items/{{imageFile}}" alt="Item of goods">
+
+    <div class="card-body">
+      <h5 class="card-title">How would you search for this item?</h5>
+
+      <p class="card-text">Enter the search term you would use to find this item in an online store.</p>
+
+      <div class="form-group">
+        {{!-- <label for="answer">Your answer</label> --}}
+        <input type="text" class="form-control" name="answer" id="answer" placeholder="" required>
+      </div>
+
+      <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+
+      <br><br>
+
+      <div class="progress ">
+        <div class="progress-bar" role="progressbar" style="width: {{percentComplete}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{percentComplete}}% Complete</div>
+      </div>
+    </div>
+
+  </div>
+
+  <input type="hidden" name="imageFile" value="{{imageFile}}" />
+
+</form>
+

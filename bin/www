@@ -25,9 +25,25 @@ var server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
+const ObjectId = require('mongodb').ObjectId;
+const mongoUrl = process.env.MONGO_URL;
+
+MongoClient.connect(mongoUrl)
+.then(client => {
+  const db = client.db('test');
+  const resultsCollection = db.collection(process.env.MONGO_COLLECTION || 'results');
+
+  app.locals.resultsCollection = resultsCollection;
+  server.listen(port);
+  server.on('error', onError);
+  server.on('listening', onListening);
+}).catch(error => console.error(error));
+
+
+
 
 /**
  * Normalize a port into a number, string, or false.
@@ -87,4 +103,8 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+
+
+
+
 }
