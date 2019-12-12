@@ -4,7 +4,7 @@ var router = express.Router();
 var classificationController = require('../controllers/classificationController');
 
 /* GET home page. */
-// router.get('/', classificationController.dbTest);
+router.get('/', classificationController.index);
 
 router.get('/classify-item', classificationController.classifyImage);
 router.post('/classify-item', classificationController.handleClassifyImage);

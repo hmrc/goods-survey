@@ -33,6 +33,10 @@ function getNextFile(req) {
     return file;
 }
 
+exports.index = function(req, res) {
+    res.redirect('/classify-item');
+}
+
 exports.classifyImage = function(req, res) {
 
     const percentComplete = ((req.session.answerCount || 0) / MaxAnswers) * 100;
