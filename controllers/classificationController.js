@@ -5,11 +5,32 @@ const fs = require('fs');
 const MaxAnswers = 3
 
 function getNextFile(req) {
-    const directoryPath = './public/images/items';
+
+    const baseDir = './public/images/items';
+
+    function getFiles(subDir='') {
+
+        const curDir = baseDir + subDir;
+
+        const nodes = fs.readdirSync(curDir);
+
+        const files = nodes.reduce( function(acc, node) {
+            if( fs.lstatSync(curDir+'/'+node).isDirectory() ) {
+                return acc.concat( getFiles(subDir+'/'+node) );
+            }
+            else {
+                return acc.concat( [ subDir+'/'+node ] );
+            }
+        }, [] );
+
+        return files;
+    }
 
     const filesDone = (req.session.filesDone || []);
 
-    const files = fs.readdirSync(directoryPath);
+    const files = getFiles();
+
+    files.forEach( (f) => console.log(f) );
      
     // console.log('done', filesDone);
 
@@ -41,7 +62,7 @@ exports.classifyImage = function(req, res) {
 
     const percentComplete = ((req.session.answerCount || 0) / MaxAnswers) * 100;
 
-    console.log(percentComplete);
+    // console.log(percentComplete);
 
     if(percentComplete >= 100) {
         res.redirect('/thank-you');
