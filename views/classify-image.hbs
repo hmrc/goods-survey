@@ -3,7 +3,7 @@
 
   <div class="card">
 
-    <img class="card-img-top" src="/images/items/{{imageFile}}" alt="Item of goods">
+    <img class="card-img-top" src="/images/items{{imageFile}}" alt="Item of goods">
 
     <div class="card-body">
       <h5 class="card-title">How would you search for this item?</h5>
@@ -16,10 +16,11 @@
       </div>
 
       <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+      <a href="." class="btn btn-sm btn-secondary float-right">I don&prime;t know what this is!</a>
 
       <br><br>
 
-      <div class="progress ">
+      <div class="progress">
         <div class="progress-bar" role="progressbar" style="width: {{percentComplete}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{percentComplete}}% Complete</div>
       </div>
     </div>
