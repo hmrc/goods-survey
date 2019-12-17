@@ -8,6 +8,8 @@ var app = require('../app');
 var debug = require('debug')('gorilla2:server');
 var http = require('http');
 
+app.locals.uaToken = (process.env.UA_TOKEN || 'NONE')
+
 /**
  * Get port from environment and store in Express.
  */
