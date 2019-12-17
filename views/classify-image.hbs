@@ -1,9 +1,13 @@
 
 <form method="POST">
 
-  <div class="card">
+  <div class="card p-2">
+    
+    <div class="progress mb-2">
+      <div class="progress-bar" role="progressbar" style="width: {{percentComplete}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{percentComplete}}% Complete</div>
+    </div>
 
-    <img class="card-img-top" src="/images/items{{imageFile}}" alt="Item of goods">
+    <img class="card-img" src="/images/items{{imageFile}}" alt="Item of goods">
 
     <div class="card-body">
       <h5 class="card-title">How would you search online for this item?</h5>
@@ -20,9 +24,6 @@
 
       <br><br>
 
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: {{percentComplete}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{percentComplete}}% Complete</div>
-      </div>
     </div>
 
   </div>
@@ -31,3 +32,30 @@
 
 </form>
 
+<script type="text/javascript">
+
+  window.onload = function() {
+
+
+    document.querySelector(".btn-skip").addEventListener("click", function() {
+      gtag('event', '{{imageFile}}', {
+          'event_category': 'hmrcgoodstermssurvey',
+          'event_label': 'I dont know what this is'
+        }
+      );
+    });
+
+
+    
+    document.querySelector(".btn-submit").addEventListener("click", function() {
+      gtag('event', '{{imageFile}}', {
+          'event_category': 'hmrcgoodstermssurvey',
+          'event_label': 'submit,' + document.querySelector("#answer").value
+        }
+      );
+    });
+    
+    
+  };
+
+</script>

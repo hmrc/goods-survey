@@ -10,9 +10,8 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', '{{uaToken}}');
+    gtag('config', '{{uaToken}}', { 'anonymize_ip': true });
   </script>
-  
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,32 +34,36 @@
 
   <br>
 
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
+  <div class="container">
 
-        <nav class="navbar navbar-light bg-white">
-          <a class="navbar-brand" href="#">
-            <img src="/images/logo.png" width="160px" class="d-inline-block align-top" alt="">
-          </a>
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
 
-          <span class="navbar-text">
-            <h1>
-              Quick Survey
-            </h1>
-          </span>
-        </nav>
+          <nav class="navbar navbar-light bg-white">
+            <a class="navbar-brand" href="#">
+              <img src="/images/logo.png" width="160px" class="d-inline-block align-top" alt="">
+            </a>
 
+            <span class="navbar-text">
+              <h1>
+                Quick Survey
+              </h1>
+            </span>
+          </nav>
+
+      </div>
     </div>
-  </div>
 
-  <br>
-  
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
+    <br>
+    
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
 
-      {{{body}}}
+        {{{body}}}
 
+      </div>
     </div>
+
   </div>
 
 </body>
