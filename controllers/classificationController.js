@@ -30,7 +30,7 @@ function getNextFile(req) {
 
     const files = getFiles();
 
-    files.forEach( (f) => console.log(f) );
+    //files.forEach( (f) => console.log(f) );
      
     // console.log('done', filesDone);
 
