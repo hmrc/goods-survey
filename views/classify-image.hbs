@@ -4,23 +4,23 @@
   <div class="card p-2">
     
     <div class="progress mb-2">
-      <div class="progress-bar" role="progressbar" style="width: {{percentComplete}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{percentComplete}}% Complete</div>
+      <div class="progress-bar" role="progressbar" style="width: {{percentComplete}}%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">{{percentComplete}}% {{{__ "label.complete"}}}</div>
     </div>
 
     <img class="card-img" src="/images/items{{imageFile}}" alt="Item of goods">
 
     <div class="card-body">
-      <h5 class="card-title">How would you search online for this item?</h5>
+      <h5 class="card-title">{{{__ "label.how_would_you_search_"}}}</h5>
 
-      <p class="card-text">Enter the words you would use.</p>
+      <p class="card-text">{{{__ "label.enter_the_words_"}}}</p>
 
       <div class="form-group">
         {{!-- <label for="answer">Your answer</label> --}}
         <input type="text" class="form-control" name="answer" id="answer" placeholder="" required>
       </div>
 
-      <button type="submit" class="btn btn-lg btn-primary btn-submit">Submit</button>
-      <a href="." class="btn btn-sm btn-secondary float-right btn-skip">I don&prime;t know what this is!</a>
+      <button type="submit" class="btn btn-lg btn-primary btn-submit">{{{__ "label.submit"}}}</button>
+      <a href="." class="btn btn-sm btn-secondary float-right btn-skip">{{{__ "label.i_dont_know_"}}}</a>
 
       <br><br>
 
